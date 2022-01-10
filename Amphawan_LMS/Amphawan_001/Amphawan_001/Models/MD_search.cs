@@ -21,5 +21,8 @@ namespace Amphawan_001.Models
 
         public int int_order_by { get; set; }
 
+        public int int_kind_book { get; set; } = Convert.ToInt32( enum_kind_book.keyword);
+        public int int_type_book { get; set; } = Convert.ToInt32( enum_type_ebook.books);
+
     }
 }

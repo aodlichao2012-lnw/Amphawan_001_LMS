@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Amphawan_001.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,51 @@ namespace Amphawan_001.Controllers
         {
             return View();
         }
+
+
+        public IActionResult search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult search_keyword(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult search([FromBody] MD_catralog_book mD_Catralog_Book)
+        {
+            return View();
+        }
+        
+        public IActionResult Lend()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Lend([FromBody] MD_catralog_book mD_Catralog_Book)
+        {
+            return View();
+        }
+
+        //public IActionResult returns()
+        //{
+        //    return View();
+        //}
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult returns([FromBody] MD_catralog_book mD_Catralog_Book)
+        //{
+        //    return View();
+        //}
     }
 }

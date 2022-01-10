@@ -28,7 +28,10 @@ namespace Amphawan_001.Models
         {
             standdad
         }
+         public int int_type_cus { get; set; }  = Convert.ToInt32( enum_type_cus.standdad);
 
         public DateTime Date_login_user { get; set; } = DateTime.Now;
+
+        public List<MD_catralog_book> Fk_Catralog_s { get; set; }
     }
 }

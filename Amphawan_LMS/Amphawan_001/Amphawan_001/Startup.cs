@@ -50,7 +50,7 @@ namespace Amphawan_001
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account_}/{action=Login}/{id?}");
             });
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amphawan_001.Migrations
 {
     [DbContext(typeof(CL_dbContext))]
-    [Migration("20220110064201_amphawan001")]
-    partial class amphawan001
+    [Migration("20220110070813_amphawan004")]
+    partial class amphawan004
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,9 @@ namespace Amphawan_001.Migrations
                     b.Property<DateTime>("dt_cus_expire_cus_day")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("int_type_cus")
+                        .HasColumnType("int");
+
                     b.Property<string>("st_Email_address")
                         .HasColumnType("nvarchar(max)");
 
@@ -79,6 +82,9 @@ namespace Amphawan_001.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int?>("MD_Accountint_id")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("dt_DATE_modify")
                         .HasColumnType("datetime2");
 
@@ -92,6 +98,8 @@ namespace Amphawan_001.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("int_id_catalog_book");
+
+                    b.HasIndex("MD_Accountint_id");
 
                     b.ToTable("tb_cattalog");
                 });
@@ -130,7 +138,13 @@ namespace Amphawan_001.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("int_kind_book")
+                        .HasColumnType("int");
+
                     b.Property<int>("int_order_by")
+                        .HasColumnType("int");
+
+                    b.Property<int>("int_type_book")
                         .HasColumnType("int");
 
                     b.Property<string>("st_keyword")
@@ -139,6 +153,18 @@ namespace Amphawan_001.Migrations
                     b.HasKey("int_id_num");
 
                     b.ToTable("tb_search");
+                });
+
+            modelBuilder.Entity("Amphawan_001.Models.MD_catralog_book", b =>
+                {
+                    b.HasOne("Amphawan_001.Models.MD_Account", null)
+                        .WithMany("Fk_Catralog_s")
+                        .HasForeignKey("MD_Accountint_id");
+                });
+
+            modelBuilder.Entity("Amphawan_001.Models.MD_Account", b =>
+                {
+                    b.Navigation("Fk_Catralog_s");
                 });
 #pragma warning restore 612, 618
         }
