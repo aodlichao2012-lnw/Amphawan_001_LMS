@@ -143,9 +143,6 @@ E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\ref\Amphawan_001.dll
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Amphawan_001.pdb
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Amphawan_001.genruntimeconfig.cache
-E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\bin\Debug\net5.0\System.Net.Http.Formatting.dll
-E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\bin\Debug\net5.0\System.Web.Http.dll
-E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Razor\Views\Account_\Login.cshtml.g.cs
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Razor\Views\Account_\Logout.cshtml.g.cs
 E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Razor\Views\Account_\Register.cshtml.g.cs
@@ -248,3 +245,5 @@ C:\work\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0
 C:\work\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\ref\Amphawan_001.dll
 C:\work\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Amphawan_001.pdb
 C:\work\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\obj\Debug\net5.0\Amphawan_001.genruntimeconfig.cache
+E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Suparat\Amphawan_001_LMS\Amphawan_LMS\Amphawan_001\Amphawan_001\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amphawan_001.Migrations
 {
     [DbContext(typeof(CL_dbContext))]
-    [Migration("20220110070813_amphawan004")]
-    partial class amphawan004
+    [Migration("20220111040624_sss")]
+    partial class sss
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,8 +85,8 @@ namespace Amphawan_001.Migrations
                     b.Property<int?>("MD_Accountint_id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("dt_DATE_modify")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("dt_DATE_modify")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("st_ISBN_ISSN")
                         .HasColumnType("nvarchar(max)");
@@ -138,17 +138,14 @@ namespace Amphawan_001.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("int_kind_book")
-                        .HasColumnType("int");
+                    b.Property<string>("int_ISBN_ISSN")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("int_order_by")
+                    b.Property<int>("int_kind_book")
                         .HasColumnType("int");
 
                     b.Property<int>("int_type_book")
                         .HasColumnType("int");
-
-                    b.Property<string>("st_keyword")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("int_id_num");
 

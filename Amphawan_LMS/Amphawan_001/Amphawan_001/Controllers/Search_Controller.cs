@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace Amphawan_001.Controllers
 {
@@ -18,7 +17,7 @@ namespace Amphawan_001.Controllers
 
 
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public IActionResult btn_cuture([FromUri] string name)
+        public IActionResult btn_cuture( string name)
         {
             if (name == "TH")
             {

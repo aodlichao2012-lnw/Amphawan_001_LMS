@@ -9,6 +9,7 @@ namespace Amphawan_001.Controllers
 {
     public class Account_Controller : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -50,6 +51,7 @@ namespace Amphawan_001.Controllers
         {
             return View();
         }
+
 
 
     }

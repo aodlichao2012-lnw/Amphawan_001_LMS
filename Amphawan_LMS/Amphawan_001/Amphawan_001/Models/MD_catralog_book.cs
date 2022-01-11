@@ -19,7 +19,7 @@ namespace Amphawan_001.Models
         public string st_name_book { get; set; }
         public string st_ISBN_ISSN { get; set; }
         public string st_detail_book { get; set; }
-        public DateTime dt_DATE_modify { get; set; } = DateTime.Now;
+        public string dt_DATE_modify { get; set; } 
 
 
         //ไฟล์เสียง

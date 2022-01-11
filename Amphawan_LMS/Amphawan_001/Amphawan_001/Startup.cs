@@ -43,7 +43,7 @@ namespace Amphawan_001
             app.UseStaticFiles();
 
             app.UseRouting();
-
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
