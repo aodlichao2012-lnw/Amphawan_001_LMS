@@ -1,7 +1,69 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<div class="advance-search">
+﻿<div class="advance-search">
+    <div class="card">
+            <div class="card-body">
+            <form id="clear">
+                <div class="row">
+                    <div class="col-md-2 pl-1">
+                        <div class="form-group">
+                            <label>ประเภท</label>
+                            <select name="JobID" id="Type" class="form-control">
+                                    <option value="books">หนังสือ</option>
+                                    <option value="ebook">E-book</option>
+                                    <option value="digital_cllection" >หนังสือเสียง</option>
+                                    <option value="video">วิดีโอ</option>
+
+                            </select>
+                            </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                        <div class="form-group">
+                            <label>รหัสหนังสือ</label>
+                            <input type="text" id="Age" name="Age" class="form-control" placeholder="รหัสหนังสือ">
+                        </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                        <div class="form-group">
+                            <label>จากวันที่</label>
+                            <input type="text" id="min-date" class="form-control date-range-filter datepicker" placeholder="From:">
+                        </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                        <div class="form-group">
+                            <label>ถึงวันที่</label>
+                            <input type="text" id="max-date" class="form-control date-range-filter datepicker"  placeholder="To:">
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <div class="text-center">
+                <a class="btn btn-success btn-lg " id="searchCatalog" data-id="1" href="#"><i class="fa fa-filter "></i> ค้นหา </a>
+                <a class="btn btn-secondary btn-lg " id="clear" href="#"><i class="fa fa-eraser "></i> ล้างค่า</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+<table id="myTable_catalog" class="display">
+    <thead>
+        <tr>
+            <th>ลำดับ</th>
+            <th>ชื่อหนังสือ</th>
+            <th>ISBN_ISSN</th>
+            <th>รายละเอียด</th>
+            <th>เหลือจำนวน (เล่ม)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row 1 Data 1</td>
+            <td>Row 1 Data 2</td>
+        </tr>
+        <tr>
+            <td><a >Edit</a></td>
+            <td>Row 2 Data 1</td>
+            <td>Row 2 Data 2</td>
+        </tr>
+    </tbody>
+</table>
+<input type="submit" name="1" class="btn-success" data-id="1" id="send_datafromsummit" title="ส่งไปที่ตระกร้า" value="ส่งไปที่ตระกร้า">
+<input type="submit" name="2" class="btn-success" data-id="2" id="send_datafromsummit" title="ส่งไปที่ตระกร้า" value="ส่งไปที่ตระกร้า">
