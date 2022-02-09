@@ -1,0 +1,521 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="LMS_002.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <%--  <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+    <style>
+        li {
+            font-size: 20px;
+            background-color: #dd9933;
+        }
+
+        a {
+            color: #dd9933;
+        }
+
+        .auto-style1 {
+            display: block;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #212529;
+            border-radius: .25rem;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: none;
+            font-weight: 400;
+            background-clip: padding-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: 1px solid #ced4da;
+            padding: 6px 12px;
+            background-color: #fff;
+            background-image: none;
+        }
+
+        .auto-style2 {
+            flex: 1 1 auto;
+            width: 40%;
+            text-align: center;
+            margin-left: 389px;
+        }
+
+        .auto-style3 {
+            text-align: center;
+            height: 25px;
+            width: 233px;
+        }
+
+        .auto-style4 {
+            text-align: center;
+            height: 20%;
+            width: 234px;
+        }
+
+        #formContent {
+            -webkit-border-radius: 10px 10px 10px 10px;
+            border-radius: 10px 10px 10px 10px;
+            background: #fff;
+            padding: 30px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            padding: 0px;
+            -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        #formFooter {
+            background-color: #f6f6f6;
+            border-top: 1px solid #dce8f1;
+            padding: 25px;
+            text-align: center;
+            -webkit-border-radius: 0 0 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+
+
+        /* TABS */
+
+        h2.inactive {
+            color: #cccccc;
+        }
+
+        h2.active {
+            color: #0d0d0d;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+
+
+        /* FORM TYPOGRAPHY*/
+
+        input[type=submit], input[type=reset] {
+            background-color: #dd9933;
+            border: none;
+            color: white;
+            height: 16%;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 20px;
+            margin: 5px 20px 40px 20px;
+        }
+
+
+        input[type=text] {
+            background-color: #f6f6f6;
+            border: none;
+            color: #0d0d0d;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 85%;
+            border: 2px solid #f6f6f6;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        input[type=password] {
+            background-color: #f6f6f6;
+            border: none;
+            color: #0d0d0d;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 85%;
+            border: 2px solid #f6f6f6;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        input[type=text]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+        input[type=password]:focus {
+            background-color: #fff;
+            border-bottom: 2px solid #5fbae9;
+        }
+
+        input[type=text]:placeholder {
+            color: #cccccc;
+        }
+
+        input[type=password]:placeholder {
+            color: #cccccc;
+        }
+
+
+
+        /* ANIMATIONS */
+
+        /* Simple CSS3 Fade-in-down Animation */
+        .fadeInDown {
+            -webkit-animation-name: fadeInDown;
+            animation-name: fadeInDown;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        @-webkit-keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        /* Simple CSS3 Fade-in Animation */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            opacity: 0;
+            -webkit-animation: fadeIn ease-in 1;
+            -moz-animation: fadeIn ease-in 1;
+            animation: fadeIn ease-in 1;
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-duration: 1s;
+            -moz-animation-duration: 1s;
+            animation-duration: 1s;
+        }
+
+            .fadeIn.first {
+                -webkit-animation-delay: 0.4s;
+                -moz-animation-delay: 0.4s;
+                animation-delay: 0.4s;
+            }
+
+            .fadeIn.second {
+                -webkit-animation-delay: 0.6s;
+                -moz-animation-delay: 0.6s;
+                animation-delay: 0.6s;
+            }
+
+            .fadeIn.third {
+                -webkit-animation-delay: 0.8s;
+                -moz-animation-delay: 0.8s;
+                animation-delay: 0.8s;
+            }
+
+            .fadeIn.fourth {
+                -webkit-animation-delay: 1s;
+                -moz-animation-delay: 1s;
+                animation-delay: 1s;
+            }
+
+        /* Simple CSS3 Fade-in Animation */
+        .underlineHover:after {
+            display: block;
+            left: 0;
+            bottom: -10px;
+            width: 0;
+            height: 2px;
+            background-color: #dd9933;
+            content: "";
+            transition: width 0.2s;
+        }
+
+        .underlineHover:hover {
+            color: #dd9933;
+        }
+
+            .underlineHover:hover:after {
+                width: 100%;
+            }
+
+        .ddl {
+            background-color: #f6f6f6;
+            border: none;
+            color: #dd9934;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 85%;
+            border: 2px solid #f6f6f6;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        /* OTHERS */
+
+        *:focus {
+            outline: none;
+        }
+
+        #icon {
+            width: 60%;
+        }
+
+        body {
+            justify-content: center;
+            font-size: 30px;
+            font: 90%/1.70em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif
+        }
+
+        .main_menu {
+            width: 150px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .level_menu {
+            width: 200px;
+            background-color: #0094ff;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+        }
+
+        .selected {
+            background-color: #b6ff00;
+            color: #fff;
+        }
+
+        a:hover {
+            background-color: #f6f6f6;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager runat="server" EnablePageMethods="true">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+
+            <nav>
+                <div class="nav navbar-nav">
+                    <a class="navbar-brand " href="~/Admin/dashboard.aspx" runat="server" id="Home">Home
+  <span class="caret"></span>
+                    </a>
+                </div>
+                <div class="nav navbar-nav">
+                    <a class="navbar-brand" id="Circulation" href="~/Admin/Circulation.aspx" data-toggle="dropdown" runat="server">Circulation
+  <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu ">
+                        <li>
+                            <a class="nav-link" onserverclick="lend_Click" runat="server" id="lend">การยืม
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" onserverclick="return2_Click" runat="server" id="return">การคืน
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class=" nav navbar-nav">
+                    <a class="navbar-brand " runat="server" id="Cataloging" href="~/Admin/Catalog_module.aspx">Cataloging
+  <span class="caret"></span>
+                    </a>
+                </div>
+                <div class=" nav navbar-nav">
+                    <a class="navbar-brand" href="~/Admin/Member_module.aspx" id="Member" runat="server">Member
+  <span class="caret"></span>
+                    </a>
+                </div>
+                <div class=" nav navbar-nav">
+                    <a class="navbar-brand" href="~/Admin/System_management.aspx" runat="server" id="SystemsManagement">Systems Management 
+  <span class="caret"></span>
+                    </a>
+                </div>
+                <div class=" nav navbar-nav">
+                    <a class="navbar-brand" href="~/Admin/Report.aspx" id="Report" runat="server">Report 
+  <span class="caret"></span>
+                    </a>
+                </div>
+                <div class=" nav navbar-nav">
+                    <asp:Button ID="logout" runat="server" Text="admin" OnClick="logout_Click" OnClientClick=" return confirm('คุณ ต้องการจะออกจากระบบ หรือไม่?');" />
+                </div>
+
+            </nav>
+
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <hr />
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $(".datepicker").datepicker();
+                format = "dd/MM/yyyy"
+            });
+
+            // Bootstrap datepicker
+            $('.input-daterange input').each(function () {
+                $(this).datepicker('clearDates');
+            });
+
+            // Set up your table
+            table = $('#ex').DataTable({
+
+            });
+
+            // Extend dataTables search
+            $.fn.dataTable.ext.search.push(
+                function (settings, data, dataIndex) {
+                    var min = $('#min-date').val();
+                    var max = $('#max-date').val();
+                    var createdAt = data[7] || 7  // Our date column in the table
+
+                    if (
+                        (min == "" || max == "") ||
+                        (
+                            moment(createdAt).isSameOrAfter(min)
+                            && moment(createdAt).isSameOrBefore(max)
+
+                        )
+                    ) {
+                        return true;
+                    }
+                    return false;
+                }
+            );
+
+            // Re-draw the table when the a date range filter changes
+            $('.date-range-filter').change(function () {
+                table.draw();
+            });
+
+            $('#ex_filter').hide();
+        });
+    </script>
+
+</body>
+</html>
