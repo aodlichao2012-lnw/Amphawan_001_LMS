@@ -87,7 +87,7 @@ namespace LMS_002.Admin
         protected void doSearch_ServerClick(object sender, EventArgs e)
         {
 
-            string select = $@"SELECTv [status] ,  [int_id], [st_user], [st_email], [st_type_cus] FROM [MD_Account] 
+            string select = $@"SELECT [status] ,  [int_id], [st_user], [st_email], [st_type_cus] FROM [MD_Account] 
                                                                    WHERE {Types.Value} LIKE 
                                                                  ";
 
@@ -109,9 +109,13 @@ namespace LMS_002.Admin
 
                     }
                     dt = Conncetions_db.Instance.Connection_command(@"" + select + "");
-                    gdv_Role_admin.DataSource = dt;
-                    gdv_Role_admin.DataBind();
                 }
+                else
+                {
+                    dt = Conncetions_db.Instance.Connection_command(@"SELECT [status],  [int_id], [st_user], [st_email], [st_type_cus] FROM[MD_Account] ");
+                }
+                gdv_Role_admin.DataSource = dt;
+                gdv_Role_admin.DataBind();
             }
         }
 

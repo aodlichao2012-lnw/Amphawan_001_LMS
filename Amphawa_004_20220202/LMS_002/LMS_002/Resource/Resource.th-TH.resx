@@ -130,7 +130,7 @@
     <value>วันที่นำเข้า</value>
   </data>
   <data name="detail_book" xml:space="preserve">
-    <value>รายละเอียดหนังือ</value>
+    <value>รายละเอียดหนังสือ</value>
   </data>
   <data name="img_book" xml:space="preserve">
     <value>รูป</value>
@@ -140,6 +140,9 @@
   </data>
   <data name="name_book" xml:space="preserve">
     <value>ชื่อหนังสือ</value>
+  </data>
+  <data name="news_mouth" xml:space="preserve">
+    <value>แนะนำหนังสือประจำเดือน</value>
   </data>
   <data name="place_print" xml:space="preserve">
     <value>สถานที่พิมพ์</value>

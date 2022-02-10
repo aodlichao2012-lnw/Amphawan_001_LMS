@@ -133,6 +133,15 @@ namespace LMS_002.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to recommend a new book.
+        /// </summary>
+        public static string news_mouth {
+            get {
+                return ResourceManager.GetString("news_mouth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to location.
         /// </summary>
         public static string place_print {

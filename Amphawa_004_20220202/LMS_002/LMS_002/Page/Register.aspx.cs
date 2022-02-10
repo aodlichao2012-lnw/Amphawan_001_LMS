@@ -30,6 +30,8 @@ namespace LMS_002.Page
                     md_account.st_email = txt_Email.Value;
                     md_account.st_cus_name = txt_name.Value;
                     md_account.st_post_address = txt_address.Value;
+                    md_account.dt_cus_begin_cus_day = DateTime.Now;
+                    md_account.dt_cus_expire_cus_day = DateTime.Now.AddMonths(4);
                     var result = db.tb_account.Any(s => s.st_user == txt_login.Value);
                     if (result)
                     {

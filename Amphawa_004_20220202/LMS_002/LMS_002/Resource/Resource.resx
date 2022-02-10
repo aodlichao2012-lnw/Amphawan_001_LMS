@@ -141,6 +141,9 @@
   <data name="name_book" xml:space="preserve">
     <value>name book</value>
   </data>
+  <data name="news_mouth" xml:space="preserve">
+    <value>recommend a new book</value>
+  </data>
   <data name="place_print" xml:space="preserve">
     <value>location</value>
   </data>

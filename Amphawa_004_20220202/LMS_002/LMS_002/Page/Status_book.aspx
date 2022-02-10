@@ -58,7 +58,7 @@
     <div>
         <div class="wrapper fadeInDown">
             <div class="text-center">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="int_id_catalog_book">
+                <asp:GridView ID="GridView1" CssClass=" table table-responsive-sm" runat="server" AutoGenerateColumns="False" DataKeyNames="int_id_catalog_book">
                     <Columns>
 
 

@@ -38,18 +38,19 @@ namespace LMS_002.Admin
             DataTable dt = Conncetions_db.Instance.Connection_command(@"SELECT * FROM MD_catralog_book WHERE st_ISBN_ISSN = '"+isbn+"'");
             if(dt.Rows.Count > 0)
             {
-                txt_bar_code.Value = "";
-                txt_author.Value = "";
-                txt_bar_code.Value = "";
-                txt_book_name.Value = "";
-                txt_iss_num.Value = "";
-                count_print.Value = "";
-                plate_print.Value = "";
-                company_print.Value = "";
-                year_print.Value = "";
-                call_number.Value = "";
-                detail_book.Value = "";
-                count_book.Value = "";
+                txt_bar_code.Value =         dt.Rows[0]["barcode"].ToString();
+                txt_author.Value =         dt.Rows[0]["st_author"].ToString();
+                txt_book_name.Value =       dt.Rows[0]["st_name_book"].ToString();
+                txt_iss_num.Value =         dt.Rows[0]["st_ISBN_ISSN"].ToString();
+                count_print.Value =         dt.Rows[0]["count_print"].ToString();
+                plate_print.Value =          dt.Rows[0]["plate_print"].ToString();
+                company_print.Value =       dt.Rows[0]["company_print"].ToString();
+                year_print.Value =          dt.Rows[0]["count_print"].ToString();
+                call_number.Value =         dt.Rows[0]["st_callnumber"].ToString();
+                detail_book.Value =         dt.Rows[0]["st_detail_book"].ToString();
+                count_book.Value =           dt.Rows[0]["count_book"].ToString();
+
+        
             }
         }
 
@@ -128,7 +129,7 @@ namespace LMS_002.Admin
                            , int_count_view_book
                             , int_type_Dictionary
                             , st_type_Dictionary
-                             , [st_callnumber] , sound_part )
+                             , [st_callnumber] , sound_part  , count_book)
                      VALUES
                            ('{ Convert.ToString(txt_book_name.Value, new CultureInfo("th-TH")) }' ,
                                '{ txt_iss_num.Value }',
@@ -152,14 +153,54 @@ namespace LMS_002.Admin
                                '{plate_print.Value}',
                                '{ company_print.Value }',
                                {0},
-                               '{"ภาษาไทย"}' , 0 , {ddl_dictionnary.SelectedValue} , '{ddl_dictionnary.SelectedItem.Text}' , '{call_number.Value} ฉ{i}' , '{pathsound}')";
+                               '{"ภาษาไทย"}',
+                                0 ,
+                                {ddl_dictionnary.SelectedValue} ,
+                                '{ddl_dictionnary.SelectedItem.Text}' , 
+                                '{call_number.Value} ฉ{i}' ,
+                                '{pathsound}') , 
+                                 {count}";
 
                     var result = Conncetions_db.Instance.Connection_command(sql);
                 }
                 else
                 {
-                    string sql2 = "";
-                    var result = Conncetions_db.Instance.Connection_command(sql2);
+                    string sql2 = $@"UPDATE [dbo].[MD_catralog_book]
+                                    SET
+                                        
+                                        [st_name_book]                  =      '{ Convert.ToString(txt_book_name.Value, new CultureInfo("th-TH")) }' ,
+                                        [st_ISBN_ISSN]                  =         '{ txt_iss_num.Value }',
+                                        [st_detail_book]                =         '{ detail_book.Value }',
+                                        [dt_DATE_modify]                =         '{ DateTime.UtcNow.ToString("yyyy/MM/dd", new CultureInfo("en-EN")) }',
+                                        [st_type_book]                  =         '{ int_types}',
+                                        [st_type_book_name]             =         '{st_types}',
+                                        [bool_current]                  =         '{"False"}',
+                                        [int_cheeckin_out]              =         {0},
+                                        [st_cheeckin_out]               =         '{"พร้อมยืม"}',
+                                                                        =         '{ Session["user"].ToString() }',
+                                        [st_process_name_user]          =         {0 },
+                                        [int_status_yet]                =         '{""}',
+                                        [st_status_yet]                 =         '{pathTopic }',
+                                        [img_path]                      =         '{ pathVideo }',
+                                        [video_path]                    =         '{pathEbook }',
+                                        [ebook_path]                    =         '{""}',
+                                        [st_lend_name]                  =         '{txt_author.Value }',
+                                        [st_author]                     =         '{ txt_bar_code.Value }',
+                                        [barcode]                       =         '{ count_print.Value }',
+                                        [count_print]                   =         '{plate_print.Value}',
+                                        [plate_print]                   =         '{ company_print.Value }',
+                                        [company_print]                 =         {0},
+                                        [int_lang]                      =           {0},
+                                        [st_lang]                       =           '{"ภาษาไทย"}',
+                                         int_count_view_book            =            0 ,
+                                        , int_type_Dictionary           =            {ddl_dictionnary.SelectedValue} ,
+                                        , st_type_Dictionary            =            '{ddl_dictionnary.SelectedItem.Text}' , 
+                                         , [st_callnumber]              =            '{call_number.Value} ฉ{i}' ,
+                                        , sound_part  ,                 =            '{pathsound}') , 
+                                        count_book                      =             {count}
+                    WHERE st_ISBN_ISSN =  '{Request.QueryString["ISBN"].ToString() }'
+                                        ";
+                            var result = Conncetions_db.Instance.Connection_command(sql2);
                 }
              
 

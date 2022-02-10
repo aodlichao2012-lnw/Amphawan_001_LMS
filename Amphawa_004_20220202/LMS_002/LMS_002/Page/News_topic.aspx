@@ -5,7 +5,7 @@
     <div class="card">
             <div class=" card-header"></div>
             <div class="card-body">
-                <asp:Label runat="server" ID="detail"></asp:Label>
+                <asp:Label runat="server" CssClass=" w-50b" Font-Size="Medium" ID="detail"></asp:Label>
               
             </div>
             <div class=" card-footer">

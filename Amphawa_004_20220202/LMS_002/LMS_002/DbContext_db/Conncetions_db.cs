@@ -53,9 +53,12 @@ namespace LMS_002.DbContext_db
                 }
                 else
                 {
-                    
-                    dt.Columns.Add( new DataColumn() {  ColumnName = "test"  });
-                    dt.Rows.Add("0");
+                    if(dt.Columns.Count < 0)
+                    {
+                        dt.Columns.Add(new DataColumn() { ColumnName = "test" });
+                        dt.Rows.Add("0");
+                    }
+                   
 
                     return dt;
                    

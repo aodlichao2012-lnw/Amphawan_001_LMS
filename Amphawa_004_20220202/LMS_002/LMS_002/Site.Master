@@ -197,12 +197,10 @@
 
         input[type=text]:focus {
             background-color: #fff;
-            border-bottom: 2px solid #5fbae9;
         }
 
         input[type=password]:focus {
             background-color: #fff;
-            border-bottom: 2px solid #5fbae9;
         }
 
         input[type=text]:placeholder {
@@ -408,12 +406,11 @@
 
         a:hover {
             background-color: #f6f6f6;
-            font-size: 20px;
         }
     </style>
 </head>
 
-<body>
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:larger">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -506,7 +503,7 @@
     </ul>--%>
 
                 <div class="nav navbar-nav">
-                    <a class="navbar-brand "  data-toggle="dropdown">
+                    <a class="navbar-brand "   href="#" data-toggle="dropdown">
                         Home
   <span class="caret"></span>
                     </a>
@@ -518,7 +515,7 @@
                     </ul>
                 </div>
                 <div class="nav navbar-nav">
-                    <a class="navbar-brand"  data-toggle="dropdown" runat="server">
+                    <a class="navbar-brand" href="#"  data-toggle="dropdown" runat="server">
                         ABOUT US
   <span class="caret"></span>
                     </a>
@@ -529,12 +526,12 @@
                 </div>
           
                 <div class=" nav navbar-nav">
-                    <a class="navbar-brand "  data-toggle="dropdown">
+                    <a class="navbar-brand "  href="#"  data-toggle="dropdown">
                         OPAC
   <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu ">
-                        <li><a class="nav-link " runat="server" id="list" onserverclick="list_ServerClick">ค้นหาข้อมูล</a></li>
+                        <li><a class="nav-link  "  href="#" runat="server" id="list" onserverclick="list_ServerClick">ค้นหาข้อมูล</a></li>
 
                     </ul>
                 </div>
@@ -549,7 +546,7 @@
                <%-- admin --%>
 
                    <div class=" nav navbar-nav">
-                    <a class="navbar-brand "  runat="server" id="admin_page" data-toggle="dropdown">
+                    <a class="navbar-brand "  runat="server"  href="#" id="admin_page" data-toggle="dropdown">
                         ADMIN
   <span class="caret"></span>
                     </a>
